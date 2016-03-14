@@ -1,0 +1,132 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/danny/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/danny/.rvm/gems/ruby-2.1.2/bin:/Users/danny/.rvm/gems/ruby-2.1.2@global/bin:/Users/danny/.rvm/rubies/ruby-2.1.2/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/danny/.rvm/bin:/Users/danny/.rvm/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+eval "$(rbenv init -)"
+
+###########
+# Aliases
+###########
+## Core Directories
+alias dropbox="cd /Users/danny/Dropbox"
+alias gdrive="cd /Users/danny/Google\ Drive"
+alias sookasa="cd /Users/danny/Dropbox/Sookasa"
+alias tech="cd /Users/danny/Google\ Drive/tech"
+alias dotfiles="cd /Users/danny/Google\ Drive/tech/dotfiles"
+alias myrails="/Users/danny/Google\ Drive/tech/rails"
+alias myruby="/Users/danny/Google\ Drive/tech/ruby"
+
+## File edits
+alias zshrc="emacs ~/.zshrc"
+alias bashprofile="emacs ~/.bash_profile"
+alias bashrc="emacs ~/.bashrc"
+alias hosts="sudo emacs /etc/hosts"
+
+## Rails
+startRails() {
+  rails s -p $1
+}
+alias rgo=startRails
+
+## Postgres
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+## Resque
+alias resquestart="RESQUE_TERM_TIMEOUT=1 TERM_CHILD=1 QUEUE=* bundle exec rake resque:work"
+
+## Docker
+#alias dockerclean1="docker images | grep \"<none>\" | awk \"{print $3}\" | xargs docker rmi -f"
+#alias dockerclean2="docker rm $(docker ps -q -f status=exited)"
+
+## System
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
+alias hideFiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
+alias showmouseacc="defaults read .GlobalPreferences com.apple.mouse.scaling"
+alias disablemouseacc="defaults write .GlobalPreferences com.apple.mouse.scaling -1"
+
+## Personal
+alias ctci="/Users/danny/Google\ Drive/ctci"
