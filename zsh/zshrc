@@ -83,10 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Load rbenv automatically by appending
-# the following to ~/.zshrc:
-eval "$(rbenv init -)"
-
 ###########
 # Aliases
 ###########
@@ -129,4 +125,8 @@ alias showmouseacc="defaults read .GlobalPreferences com.apple.mouse.scaling"
 alias disablemouseacc="defaults write .GlobalPreferences com.apple.mouse.scaling -1"
 
 ## Personal
-alias ctci="/Users/danny/Google\ Drive/ctci"
+alias ctci="/Users/danny/Google\ Drive/tech/ctci"
+alias clrs="/Users/danny/Google\ Drive/tech/clrs"
+
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
